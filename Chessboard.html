@@ -1,0 +1,39 @@
+
+<div id="board"></div>
+<p id="demo"></p>
+     <style>
+            #board{
+                display: inline-block;
+                border: 2px outset blue;
+            }
+    
+            #board div{
+                line-height: 1px;
+            }    
+            #board span{
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+            }
+            #board div:nth-child(odd) span:nth-child(even),
+            #board div:nth-child(even) span:nth-child(odd){
+                background-color: black;
+            }
+            #board div:nth-child(even) span:nth-child(even),
+            #board div:nth-child(odd) span:nth-child(odd){
+                background-color: white;
+            }
+        </style>
+<script>
+        document.getElementById("demo").innerHTML = "my chessboard";
+        var xcol=8;
+        var yrow=8;
+        var board = document.getElementById("board");
+        for (var i=0; i<yrow; i++){
+            var row = board.appendChild(document.createElement("div"));
+            for (var c=0; c<xcol; c++){
+                row.appendChild(document.createElement("span"));
+            }
+        }
+</script>
+
